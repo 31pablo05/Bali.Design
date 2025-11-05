@@ -1,0 +1,142 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Colores personalizados de Bali.Design como variables CSS */
+:root {
+  --bali-cream: #f5ebe2;
+  --bali-beige: #f6ebe2;
+  --bali-light: #f4e9e3;
+  --bali-mauve: #c3b5b4;
+  --bali-rose: #b7a7a8;
+  --bali-brown: #91766d;
+  --bali-dark: #463b37;
+  --bali-darker: #463835;
+}
+
+/* Aplicar colores como clases utilitarias */
+.bg-bali-cream { background-color: var(--bali-cream); }
+.bg-bali-beige { background-color: var(--bali-beige); }
+.bg-bali-light { background-color: var(--bali-light); }
+.bg-bali-mauve { background-color: var(--bali-mauve); }
+.bg-bali-rose { background-color: var(--bali-rose); }
+.bg-bali-brown { background-color: var(--bali-brown); }
+.bg-bali-dark { background-color: var(--bali-dark); }
+.bg-bali-darker { background-color: var(--bali-darker); }
+
+.text-bali-cream { color: var(--bali-cream); }
+.text-bali-beige { color: var(--bali-beige); }
+.text-bali-light { color: var(--bali-light); }
+.text-bali-mauve { color: var(--bali-mauve); }
+.text-bali-rose { color: var(--bali-rose); }
+.text-bali-brown { color: var(--bali-brown); }
+.text-bali-dark { color: var(--bali-dark); }
+.text-bali-darker { color: var(--bali-darker); }
+
+.border-bali-cream { border-color: var(--bali-cream); }
+.border-bali-beige { border-color: var(--bali-beige); }
+.border-bali-light { border-color: var(--bali-light); }
+.border-bali-mauve { border-color: var(--bali-mauve); }
+.border-bali-rose { border-color: var(--bali-rose); }
+.border-bali-brown { border-color: var(--bali-brown); }
+.border-bali-dark { border-color: var(--bali-dark); }
+.border-bali-darker { border-color: var(--bali-darker); }
+
+.hover\:bg-bali-brown:hover { background-color: var(--bali-brown); }
+.hover\:bg-bali-dark:hover { background-color: var(--bali-dark); }
+.hover\:text-bali-brown:hover { color: var(--bali-brown); }
+.hover\:border-bali-brown:hover { border-color: var(--bali-brown); }
+
+/* Gradientes personalizados */
+.from-bali-brown { --tw-gradient-from: var(--bali-brown); }
+.to-bali-rose { --tw-gradient-to: var(--bali-rose); }
+.from-bali-rose { --tw-gradient-from: var(--bali-rose); }
+.to-bali-mauve { --tw-gradient-to: var(--bali-mauve); }
+.from-bali-mauve { --tw-gradient-from: var(--bali-mauve); }
+.to-bali-brown { --tw-gradient-to: var(--bali-brown); }
+.from-bali-light { --tw-gradient-from: var(--bali-light); }
+.to-bali-dark { --tw-gradient-to: var(--bali-dark); }
+.via-bali-mauve { --tw-gradient-via: var(--bali-mauve); }
+
+/* Fuentes personalizadas */
+.font-serif { font-family: 'Cormorant Garamond', serif; }
+.font-sans { font-family: 'Inter', sans-serif; }
+
+/* Paleta de colores Bali.Design */
+:root {
+  --bali-cream: #f5ebe2;
+  --bali-beige: #f6ebe2;
+  --bali-light: #f4e9e3;
+  --bali-mauve: #c3b5b4;
+  --bali-rose: #b7a7a8;
+  --bali-brown: #91766d;
+  --bali-dark: #463b37;
+  --bali-darker: #463835;
+}
+
+/* Clases de utilidad personalizadas */
+.bg-bali-cream { background-color: var(--bali-cream); }
+.bg-bali-beige { background-color: var(--bali-beige); }
+.bg-bali-light { background-color: var(--bali-light); }
+.bg-bali-mauve { background-color: var(--bali-mauve); }
+.bg-bali-rose { background-color: var(--bali-rose); }
+.bg-bali-brown { background-color: var(--bali-brown); }
+.bg-bali-dark { background-color: var(--bali-dark); }
+.bg-bali-darker { background-color: var(--bali-darker); }
+
+.text-bali-cream { color: var(--bali-cream); }
+.text-bali-beige { color: var(--bali-beige); }
+.text-bali-light { color: var(--bali-light); }
+.text-bali-mauve { color: var(--bali-mauve); }
+.text-bali-rose { color: var(--bali-rose); }
+.text-bali-brown { color: var(--bali-brown); }
+.text-bali-dark { color: var(--bali-dark); }
+.text-bali-darker { color: var(--bali-darker); }
+
+.border-bali-cream { border-color: var(--bali-cream); }
+.border-bali-beige { border-color: var(--bali-beige); }
+.border-bali-light { border-color: var(--bali-light); }
+.border-bali-mauve { border-color: var(--bali-mauve); }
+.border-bali-rose { border-color: var(--bali-rose); }
+.border-bali-brown { border-color: var(--bali-brown); }
+.border-bali-dark { border-color: var(--bali-dark); }
+.border-bali-darker { border-color: var(--bali-darker); }
+
+.hover\:bg-bali-cream:hover { background-color: var(--bali-cream); }
+.hover\:bg-bali-beige:hover { background-color: var(--bali-beige); }
+.hover\:bg-bali-light:hover { background-color: var(--bali-light); }
+.hover\:bg-bali-mauve:hover { background-color: var(--bali-mauve); }
+.hover\:bg-bali-rose:hover { background-color: var(--bali-rose); }
+.hover\:bg-bali-brown:hover { background-color: var(--bali-brown); }
+.hover\:bg-bali-dark:hover { background-color: var(--bali-dark); }
+.hover\:bg-bali-darker:hover { background-color: var(--bali-darker); }
+
+.hover\:text-bali-cream:hover { color: var(--bali-cream); }
+.hover\:text-bali-beige:hover { color: var(--bali-beige); }
+.hover\:text-bali-light:hover { color: var(--bali-light); }
+.hover\:text-bali-mauve:hover { color: var(--bali-mauve); }
+.hover\:text-bali-rose:hover { color: var(--bali-rose); }
+.hover\:text-bali-brown:hover { color: var(--bali-brown); }
+.hover\:text-bali-dark:hover { color: var(--bali-dark); }
+.hover\:text-bali-darker:hover { color: var(--bali-darker); }
+
+.focus\:border-bali-brown:focus { border-color: var(--bali-brown); }
+
+/* Gradientes personalizados */
+.from-bali-cream { --tw-gradient-from: var(--bali-cream); }
+.to-bali-brown { --tw-gradient-to: var(--bali-brown); }
+.from-bali-brown { --tw-gradient-from: var(--bali-brown); }
+.to-bali-rose { --tw-gradient-to: var(--bali-rose); }
+.from-bali-rose { --tw-gradient-from: var(--bali-rose); }
+.to-bali-mauve { --tw-gradient-to: var(--bali-mauve); }
+.from-bali-mauve { --tw-gradient-from: var(--bali-mauve); }
+.to-bali-dark { --tw-gradient-to: var(--bali-dark); }
+.from-bali-light { --tw-gradient-from: var(--bali-light); }
+.via-bali-mauve { --tw-gradient-to: var(--bali-mauve); }
+.via-bali-brown { --tw-gradient-to: var(--bali-brown); }
+
+/* Smooth scrolling global */
+html {
+  scroll-behavior: smooth;
+}
+
