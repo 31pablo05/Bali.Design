@@ -243,7 +243,7 @@ Mensaje: ${formData.message}
                     <FaEnvelope className="text-white text-xl" />
                   </div>
                   <div>
-                    <p className="font-sans font-medium text-bali-darker">hola@bali.design</p>
+                    <p className="font-sans font-medium text-bali-darker">yamialmendra1501@gmail.com</p>
                     <p className="text-sm text-bali-dark/70 font-sans">Email directo</p>
                   </div>
                 </div>

@@ -148,6 +148,99 @@ const Services = () => {
           ))}
         </div>
 
+        {/* Process Steps with Images */}
+        <motion.div 
+          className="mt-20"
+          initial={{ opacity: 0, y: 50 }}
+          animate={isVisible ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 1 }}
+        >
+          {/* Header */}
+          <div className="text-center mb-12">
+            <h3 className="text-3xl md:text-4xl font-serif font-light text-bali-darker mb-4">
+              ¿Te gustaría trabajar conmigo?
+            </h3>
+            <p className="text-lg text-bali-dark font-sans leading-relaxed max-w-3xl mx-auto">
+              Te cuento el paso a paso de cómo es el proceso de diseño en Bali
+              <br className="hidden md:block" />
+              para que tengas todo claro desde el principio
+            </p>
+          </div>
+
+          {/* Images Grid */}
+          <div className="relative">
+            {/* Desktop: 3x2 Grid */}
+            <div className="hidden lg:grid lg:grid-cols-3 lg:gap-8 lg:gap-y-16">
+              {/* Row 1 */}
+              {[1, 2, 3].map((step, index) => (
+                <motion.div
+                  key={step}
+                  className="relative"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={isVisible ? { opacity: 1, scale: 1 } : {}}
+                  transition={{ duration: 0.6, delay: 1.2 + (index * 0.2) }}
+                >
+                  <div className="relative group">
+                    <img 
+                      src={`/images/tegustariatrabajarconmigo/trabajar${step}.jpg`}
+                      alt={`Paso ${index + 1} del proceso de diseño`}
+                      className="w-full aspect-square object-contain bg-white rounded-2xl shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-black/5 rounded-2xl group-hover:bg-black/0 transition-all duration-300"></div>
+                    
+                  </div>
+                </motion.div>
+              ))}
+
+              {/* Row 2 - Reverse order for flow */}
+              {[4, 5, 6].map((step, index) => (
+                <motion.div
+                  key={step}
+                  className="relative"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={isVisible ? { opacity: 1, scale: 1 } : {}}
+                  transition={{ duration: 0.6, delay: 1.8 + (index * 0.2) }}
+                >
+                  <div className="relative group">
+                    <img 
+                      src={`/images/tegustariatrabajarconmigo/trabajar${step}.jpg`}
+                      alt={`Paso ${6 - index} del proceso de diseño`}
+                      className="w-full aspect-square object-contain bg-white rounded-2xl shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-black/5 rounded-2xl group-hover:bg-black/0 transition-all duration-300"></div>
+                    
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Mobile/Tablet: Vertical Flow */}
+            <div className="lg:hidden space-y-8">
+              {[1, 2, 3, 4, 5, 6].map((step, index) => (
+                <motion.div
+                  key={step}
+                  className="relative"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={isVisible ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.6, delay: 1.2 + (index * 0.15) }}
+                >
+                  <div className="relative group max-w-md mx-auto">
+                    <img 
+                      src={`/images/tegustariatrabajarconmigo/trabajar${step}.jpg`}
+                      alt={`Paso ${index + 1} del proceso de diseño`}
+                      className="w-full aspect-square object-contain bg-white rounded-2xl shadow-lg group-hover:shadow-xl transition-all duration-300"
+                    />
+                    <div className="absolute inset-0 bg-black/5 rounded-2xl group-hover:bg-black/0 transition-all duration-300"></div>
+                    <div className="absolute bottom-4 left-4 bg-bali-brown/90 backdrop-blur-sm px-3 py-1 rounded-full">
+                      <span className="text-white font-serif font-medium text-sm">Paso {index + 1}</span>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+
         {/* Bottom CTA */}
         <motion.div 
           className="text-center mt-16"
