@@ -137,9 +137,9 @@ const Portfolio = () => {
     <section 
       id="portfolio" 
       ref={sectionRef}
-      className="py-20 lg:py-32 bg-bali-beige"
+      className="py-16 sm:py-20 lg:py-32 bg-bali-beige"
     >
-      <div className="container mx-auto px-6 lg:px-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <motion.div 
@@ -148,11 +148,11 @@ const Portfolio = () => {
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-light text-bali-darker mb-6 leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-light text-bali-darker mb-4 sm:mb-6 leading-tight">
             Marcas que{' '}
             <span className="italic text-bali-brown">cobran vida</span>
           </h2>
-          <p className="text-lg md:text-xl text-bali-dark font-sans leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-bali-dark font-sans leading-relaxed">
             Cada proyecto es una historia única, diseñada{' '}
             <span className="font-medium text-bali-brown">con propósito y corazón</span>.
           </p>
@@ -167,29 +167,29 @@ const Portfolio = () => {
             animate={isVisible ? { opacity: 1 } : {}}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            <h3 className="text-2xl md:text-3xl font-serif font-light text-bali-darker mb-8 text-center">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-serif font-light text-bali-darker mb-6 sm:mb-8 text-center">
               Proyectos Destacados
             </h3>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
               {projects.filter(project => project.featured).map((project, index) => (
                 <motion.div
                   key={project.id}
                   className="group cursor-pointer"
-                  initial={{ opacity: 0, y: 50 }}
+                  initial={{ opacity: 0, y: 20 }}
                   animate={isVisible ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.6, delay: index * 0.2 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
                   onClick={() => openProject(project)}
                 >
                   {/* Project Card */}
-                  <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform group-hover:scale-105 overflow-hidden h-full">
+                  <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg hover:shadow-xl sm:hover:shadow-2xl transition-all duration-300 overflow-hidden h-full">
                     
                     {/* Project Image */}
                     <div className="relative overflow-hidden aspect-[4/3]">
                       <img 
                         src={project.images[0]} 
                         alt={project.title}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        className="w-full h-full object-cover"
                         onError={(e) => {
                           e.target.style.display = 'none';
                           e.target.nextSibling.style.display = 'flex';
@@ -206,8 +206,8 @@ const Portfolio = () => {
                         </div>
                       </div>
                       
-                      {/* Overlay */}
-                      <div className="absolute inset-0 bg-bali-brown/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      {/* Overlay - Hidden on mobile */}
+                      <div className="hidden sm:flex absolute inset-0 bg-bali-brown/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 items-center justify-center">
                         <div className="text-center space-y-3">
                           <FaEye className="text-white text-3xl mx-auto" />
                           <p className="text-white font-sans font-medium">Ver proyecto</p>
@@ -219,18 +219,18 @@ const Portfolio = () => {
                     </div>
 
                     {/* Content */}
-                    <div className="p-6">
-                      <div className="flex items-center gap-2 mb-3">
-                        <span className="text-xs bg-bali-brown/10 text-bali-brown px-3 py-1 rounded-full font-sans font-medium">
+                    <div className="p-4 sm:p-6">
+                      <div className="flex items-center gap-2 mb-2 sm:mb-3">
+                        <span className="text-xs bg-bali-brown/10 text-bali-brown px-2 sm:px-3 py-1 rounded-full font-sans font-medium">
                           {project.category}
                         </span>
                       </div>
                       
-                      <h3 className="text-xl font-serif font-medium text-bali-darker group-hover:text-bali-brown transition-colors duration-300 mb-3 line-clamp-2">
+                      <h3 className="text-lg sm:text-xl font-serif font-medium text-bali-darker mb-2 sm:mb-3 line-clamp-2">
                         {project.title}
                       </h3>
                       
-                      <p className="text-sm text-bali-dark font-sans leading-relaxed mb-4 line-clamp-3">
+                      <p className="text-xs sm:text-sm text-bali-dark font-sans leading-relaxed mb-3 sm:mb-4 line-clamp-3">
                         {project.description}
                       </p>
                       
@@ -257,29 +257,29 @@ const Portfolio = () => {
             animate={isVisible ? { opacity: 1 } : {}}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <h3 className="text-2xl md:text-3xl font-serif font-light text-bali-darker mb-8 text-center">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-serif font-light text-bali-darker mb-6 sm:mb-8 text-center">
               Contenido en Movimiento
             </h3>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
               {projects.filter(project => !project.featured).map((project, index) => (
                 <motion.div
                   key={project.id}
                   className="group cursor-pointer"
-                  initial={{ opacity: 0, y: 50 }}
+                  initial={{ opacity: 0, y: 20 }}
                   animate={isVisible ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.6, delay: 0.6 + (index * 0.2) }}
+                  transition={{ duration: 0.5, delay: 0.3 + (index * 0.1) }}
                   onClick={() => openProject(project)}
                 >
                   {/* Video Card */}
-                  <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform group-hover:scale-105 overflow-hidden h-full">
+                  <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg hover:shadow-xl sm:hover:shadow-2xl transition-all duration-300 overflow-hidden h-full">
                     
                     {/* Video Thumbnail */}
                     <div className="relative overflow-hidden aspect-[16/9]">
                       <img 
                         src={project.thumbnail} 
                         alt={project.title}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        className="w-full h-full object-cover"
                         onError={(e) => {
                           e.target.style.display = 'none';
                           e.target.nextSibling.style.display = 'flex';
@@ -303,8 +303,8 @@ const Portfolio = () => {
                         </div>
                       </div>
                       
-                      {/* Overlay */}
-                      <div className="absolute inset-0 bg-bali-brown/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      {/* Overlay - Hidden on mobile */}
+                      <div className="hidden sm:flex absolute inset-0 bg-bali-brown/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 items-center justify-center">
                         <div className="text-center space-y-3">
                           <FaPlay className="text-white text-3xl mx-auto" />
                           <p className="text-white font-sans font-medium">Ver video</p>
@@ -313,18 +313,18 @@ const Portfolio = () => {
                     </div>
 
                     {/* Content */}
-                    <div className="p-6">
-                      <div className="flex items-center gap-2 mb-3">
-                        <span className="text-xs bg-bali-brown/10 text-bali-brown px-3 py-1 rounded-full font-sans font-medium">
+                    <div className="p-4 sm:p-6">
+                      <div className="flex items-center gap-2 mb-2 sm:mb-3">
+                        <span className="text-xs bg-bali-brown/10 text-bali-brown px-2 sm:px-3 py-1 rounded-full font-sans font-medium">
                           {project.category}
                         </span>
                       </div>
                       
-                      <h3 className="text-xl font-serif font-medium text-bali-darker group-hover:text-bali-brown transition-colors duration-300 mb-3 line-clamp-2">
+                      <h3 className="text-lg sm:text-xl font-serif font-medium text-bali-darker mb-2 sm:mb-3 line-clamp-2">
                         {project.title}
                       </h3>
                       
-                      <p className="text-sm text-bali-dark font-sans leading-relaxed mb-4 line-clamp-2">
+                      <p className="text-xs sm:text-sm text-bali-dark font-sans leading-relaxed mb-3 sm:mb-4 line-clamp-2">
                         {project.description}
                       </p>
                       
@@ -373,31 +373,31 @@ const Portfolio = () => {
       {/* Modal */}
       {selectedProject && (
         <motion.div 
-          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-2 sm:p-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.3 }}
+          transition={{ duration: 0.2 }}
           onClick={closeModal}
         >
           <motion.div 
-            className="bg-white rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto relative"
-            initial={{ scale: 0.9, opacity: 0 }}
+            className="bg-white rounded-2xl sm:rounded-3xl max-w-4xl w-full max-h-[95vh] sm:max-h-[90vh] overflow-y-auto relative"
+            initial={{ scale: 0.95, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.2 }}
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Content */}
-            <div className="p-8">
+            <div className="p-4 sm:p-6 md:p-8">
               {/* Close Button */}
               <button 
                 onClick={closeModal}
-                className="absolute top-4 right-4 w-10 h-10 bg-bali-brown/10 rounded-full flex items-center justify-center text-bali-brown hover:bg-bali-brown hover:text-white transition-colors duration-300 text-xl font-bold z-10"
+                className="absolute top-2 right-2 sm:top-4 sm:right-4 w-8 h-8 sm:w-10 sm:h-10 bg-bali-brown/10 rounded-full flex items-center justify-center text-bali-brown hover:bg-bali-brown hover:text-white transition-colors duration-300 text-lg sm:text-xl font-bold z-10"
               >
                 ×
               </button>
 
               {/* Project Media with Navigation */}
-              <div className="w-full relative mb-6 rounded-2xl overflow-hidden">
+              <div className="w-full relative mb-4 sm:mb-6 rounded-xl sm:rounded-2xl overflow-hidden">
                 {selectedProject.type === 'video' ? (
                   <div className="relative" style={{ paddingBottom: '56.25%' /* 16:9 aspect ratio */ }}>
                     <video 
@@ -411,11 +411,11 @@ const Portfolio = () => {
                     </video>
                   </div>
                 ) : (
-                  <div className="h-80 md:h-96">
+                  <div className="h-56 sm:h-64 md:h-72 lg:h-80">
                     <img 
                       src={selectedProject.images[currentImageIndex]} 
                       alt={`${selectedProject.title} - Imagen ${currentImageIndex + 1}`}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-contain bg-gray-50"
                       onError={(e) => {
                         e.target.style.display = 'none';
                         e.target.nextSibling.style.display = 'flex';
@@ -436,15 +436,15 @@ const Portfolio = () => {
                       <>
                         <button 
                           onClick={prevImage}
-                          className="absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white/80 hover:bg-white rounded-full flex items-center justify-center text-bali-brown hover:text-bali-dark transition-all duration-300 shadow-lg"
+                          className="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-white/90 hover:bg-white rounded-full flex items-center justify-center text-bali-brown hover:text-bali-dark transition-all duration-200 shadow-lg"
                         >
-                          <FaChevronLeft />
+                          <FaChevronLeft className="text-sm sm:text-base" />
                         </button>
                         <button 
                           onClick={nextImage}
-                          className="absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white/80 hover:bg-white rounded-full flex items-center justify-center text-bali-brown hover:text-bali-dark transition-all duration-300 shadow-lg"
+                          className="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-white/90 hover:bg-white rounded-full flex items-center justify-center text-bali-brown hover:text-bali-dark transition-all duration-200 shadow-lg"
                         >
-                          <FaChevronRight />
+                          <FaChevronRight className="text-sm sm:text-base" />
                         </button>
                       </>
                     )}
@@ -461,12 +461,12 @@ const Portfolio = () => {
 
               {/* Thumbnail Navigation - Only for image galleries */}
               {selectedProject.type === 'images' && selectedProject.images && selectedProject.images.length > 1 && (
-                <div className="flex gap-2 mb-6 overflow-x-auto pb-2">
+                <div className="flex gap-2 mb-4 sm:mb-6 overflow-x-auto pb-2">
                   {selectedProject.images.map((image, index) => (
                     <button
                       key={index}
                       onClick={() => setCurrentImageIndex(index)}
-                      className={`flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden border-2 transition-all duration-300 ${
+                      className={`flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 rounded-lg overflow-hidden border-2 transition-all duration-200 ${
                         index === currentImageIndex 
                           ? 'border-bali-brown shadow-lg' 
                           : 'border-transparent opacity-60 hover:opacity-100'
@@ -483,18 +483,18 @@ const Portfolio = () => {
               )}
 
               {/* Project Details */}
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 <div>
-                  <span className="text-sm bg-bali-brown/10 text-bali-brown px-3 py-1 rounded-full font-sans font-medium">
+                  <span className="text-xs sm:text-sm bg-bali-brown/10 text-bali-brown px-2 sm:px-3 py-1 rounded-full font-sans font-medium">
                     {selectedProject.category}
                   </span>
                 </div>
                 
-                <h3 className="text-3xl font-serif font-medium text-bali-darker">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-serif font-medium text-bali-darker">
                   {selectedProject.title}
                 </h3>
                 
-                <p className="text-lg text-bali-dark font-sans leading-relaxed">
+                <p className="text-sm sm:text-base md:text-lg text-bali-dark font-sans leading-relaxed">
                   {selectedProject.description}
                 </p>
 
@@ -502,7 +502,7 @@ const Portfolio = () => {
                   {selectedProject.tags.map((tag, index) => (
                     <span 
                       key={index}
-                      className="text-sm text-bali-dark bg-bali-light px-3 py-1 rounded-full font-sans"
+                      className="text-xs sm:text-sm text-bali-dark bg-bali-light px-2 sm:px-3 py-1 rounded-full font-sans"
                     >
                       {tag}
                     </span>
@@ -510,7 +510,7 @@ const Portfolio = () => {
                 </div>
 
                 {/* Modal CTA */}
-                <div className="pt-6">
+                <div className="pt-4 sm:pt-6">
                   <button
                     onClick={() => {
                       const message = `¡Hola Yami! Me interesa un proyecto similar a "${selectedProject.title}". ¿Hablamos? 🎨`;
@@ -518,10 +518,10 @@ const Portfolio = () => {
                       const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
                       window.open(url, '_blank');
                     }}
-                    className="w-full bg-bali-brown text-white px-6 py-3 rounded-full font-sans font-medium hover:bg-bali-dark transition-colors duration-300 flex items-center justify-center gap-2"
+                    className="w-full bg-bali-brown text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-full font-sans font-medium hover:bg-bali-dark transition-colors duration-200 flex items-center justify-center gap-2 text-sm sm:text-base"
                   >
                     <span>Quiero algo así</span>
-                    <FaExternalLinkAlt className="text-sm" />
+                    <FaExternalLinkAlt className="text-xs sm:text-sm" />
                   </button>
                 </div>
               </div>

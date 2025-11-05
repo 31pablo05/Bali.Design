@@ -4,7 +4,6 @@ import { useState, useEffect, useRef } from 'react';
 const About = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [typedText, setTypedText] = useState('');
   const sectionRef = useRef(null);
   
   // Mouse tracking for floating elements
@@ -12,17 +11,12 @@ const About = () => {
   const y = useMotionValue(0);
   const rotateX = useTransform(y, [-100, 100], [30, -30]);
   const rotateY = useTransform(x, [-100, 100], [-30, 30]);
-
-  // Typing effect
-  const fullText = "No diseño lindo. Diseño con sentido.";
   
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          // Start typing effect
-          startTypingEffect();
         }
       },
       { threshold: 0.3 }
@@ -35,10 +29,10 @@ const About = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Mouse move handler
+  // Mouse move handler - only on desktop
   useEffect(() => {
     const handleMouseMove = (e) => {
-      if (sectionRef.current) {
+      if (window.innerWidth > 768 && sectionRef.current) {
         const rect = sectionRef.current.getBoundingClientRect();
         const centerX = rect.left + rect.width / 2;
         const centerY = rect.top + rect.height / 2;
@@ -55,58 +49,29 @@ const About = () => {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, [x, y]);
 
-  // Typing effect
-  const startTypingEffect = () => {
-    let i = 0;
-    const timer = setInterval(() => {
-      if (i <= fullText.length) {
-        setTypedText(fullText.slice(0, i));
-        i++;
-      } else {
-        clearInterval(timer);
-      }
-    }, 100);
-  };
-
   return (
     <section 
       id="about" 
       ref={sectionRef}
-      className="py-20 lg:py-32 bg-gradient-to-br from-bali-beige via-bali-beige to-bali-cream relative overflow-hidden"
+      className="py-16 sm:py-20 lg:py-32 bg-gradient-to-br from-bali-beige via-bali-beige to-bali-cream relative overflow-hidden"
     >
-      {/* Animated background elements */}
+      {/* Animated background elements - Static on mobile */}
       <div className="absolute inset-0">
-        <motion.div 
-          className="absolute top-1/4 left-1/4 w-64 h-64 bg-bali-rose/10 rounded-full blur-3xl"
-          animate={{ 
-            scale: [1, 1.2, 1],
-            rotate: [0, 180, 360],
-            opacity: [0.3, 0.6, 0.3]
-          }}
-          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div 
-          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-bali-brown/10 rounded-full blur-3xl"
-          animate={{ 
-            scale: [1.2, 1, 1.2],
-            rotate: [360, 180, 0],
-            opacity: [0.4, 0.2, 0.4]
-          }}
-          transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
-        />
+        <div className="absolute top-1/4 left-1/4 w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 bg-bali-rose/10 rounded-full blur-2xl sm:blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-48 h-48 sm:w-72 sm:h-72 md:w-96 md:h-96 bg-bali-brown/10 rounded-full blur-2xl sm:blur-3xl" />
       </div>
 
-      {/* Floating particles */}
+      {/* Floating particles - Hide on small screens */}
       {[...Array(6)].map((_, i) => (
         <motion.div
           key={i}
-          className="absolute w-2 h-2 bg-bali-brown/30 rounded-full"
+          className="absolute w-1 h-1 sm:w-2 sm:h-2 bg-bali-brown/30 rounded-full hidden sm:block"
           style={{
             left: `${20 + i * 15}%`,
             top: `${30 + Math.sin(i) * 20}%`,
           }}
           animate={{
-            y: [0, -20, 0],
+            y: [0, -10, 0],
             opacity: [0.3, 0.8, 0.3],
             scale: [1, 1.5, 1]
           }}
@@ -119,8 +84,8 @@ const About = () => {
         />
       ))}
 
-      <div className="container mx-auto px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
           
           {/* Enhanced Image Section */}
           <motion.div 
@@ -130,11 +95,11 @@ const About = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             style={{ rotateX, rotateY }}
           >
-            <div className="relative">
+            <div className="relative max-w-sm sm:max-w-md mx-auto lg:mx-0">
               {/* Main photo with glassmorphism effect */}
-              <div className="aspect-square max-w-md mx-auto lg:mx-0">
+              <div className="aspect-square">
                 <motion.div 
-                  className="w-full h-full bg-gradient-to-br from-white/20 to-white/5 backdrop-blur-lg rounded-full overflow-hidden shadow-2xl border border-white/30"
+                  className="w-full h-full bg-gradient-to-br from-white/20 to-white/5 backdrop-blur-lg rounded-full overflow-hidden shadow-xl sm:shadow-2xl border border-white/30"
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.4 }}
                 >
@@ -151,24 +116,24 @@ const About = () => {
                       }}
                       transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
                     />
-                    <div className="text-center space-y-3 relative z-10">
+                    <div className="text-center space-y-2 sm:space-y-3 relative z-10">
                       <motion.div 
-                        className="w-32 h-32 bg-white/90 backdrop-blur-sm rounded-full mx-auto flex items-center justify-center"
+                        className="w-20 h-20 sm:w-28 sm:h-28 lg:w-32 lg:h-32 bg-white/90 backdrop-blur-sm rounded-full mx-auto flex items-center justify-center"
                         whileHover={{ rotate: 360 }}
                         transition={{ duration: 0.8 }}
                       >
-                        <span className="text-bali-brown text-5xl font-serif">Y</span>
+                        <span className="text-bali-brown text-3xl sm:text-4xl lg:text-5xl font-serif">Y</span>
                       </motion.div>
-                      <p className="text-white font-sans text-lg font-medium">Yami</p>
-                      <p className="text-white/80 font-sans text-sm">Diseñadora Visual</p>
+                      <p className="text-white font-sans text-base sm:text-lg font-medium">Yami</p>
+                      <p className="text-white/80 font-sans text-xs sm:text-sm">Diseñadora Visual</p>
                     </div>
                   </div>
                 </motion.div>
               </div>
 
-              {/* Enhanced floating decorative elements */}
+              {/* Enhanced floating decorative elements - Responsive sizes */}
               <motion.div 
-                className="absolute -top-6 -right-6 w-12 h-12 bg-gradient-to-br from-bali-rose to-bali-mauve rounded-full shadow-lg"
+                className="absolute -top-3 -right-3 sm:-top-6 sm:-right-6 w-8 h-8 sm:w-12 sm:h-12 bg-gradient-to-br from-bali-rose to-bali-mauve rounded-full shadow-lg"
                 animate={{ 
                   y: [0, -10, 0],
                   rotate: [0, 180, 360],
@@ -178,7 +143,7 @@ const About = () => {
                 style={{ x: mousePosition.x * 0.5, y: mousePosition.y * 0.5 }}
               />
               <motion.div 
-                className="absolute -bottom-8 -left-8 w-16 h-16 bg-gradient-to-br from-bali-brown/30 to-bali-brown/10 rounded-full backdrop-blur-sm"
+                className="absolute -bottom-4 -left-4 sm:-bottom-8 sm:-left-8 w-10 h-10 sm:w-16 sm:h-16 bg-gradient-to-br from-bali-brown/30 to-bali-brown/10 rounded-full backdrop-blur-sm"
                 animate={{ 
                   scale: [1, 1.3, 1],
                   opacity: [0.6, 1, 0.6]
@@ -187,7 +152,7 @@ const About = () => {
                 style={{ x: mousePosition.x * -0.3, y: mousePosition.y * -0.3 }}
               />
               <motion.div 
-                className="absolute top-1/3 -right-12 w-6 h-6 bg-bali-mauve rounded-full"
+                className="absolute top-1/3 -right-6 sm:-right-12 w-4 h-4 sm:w-6 sm:h-6 bg-bali-mauve rounded-full"
                 animate={{ 
                   x: [0, 10, 0],
                   y: [0, -15, 0]
@@ -199,40 +164,29 @@ const About = () => {
 
           {/* Enhanced Content Section */}
           <motion.div 
-            className="order-1 lg:order-2 space-y-8"
+            className="order-1 lg:order-2 space-y-6 sm:space-y-8"
             initial={{ opacity: 0, x: 30 }}
             animate={isVisible ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            {/* Typing effect title */}
-            <div className="space-y-4">
+            {/* Title */}
+            <div className="space-y-3 sm:space-y-4">
               <motion.h2 
-                className="text-4xl md:text-5xl font-serif font-light text-bali-darker leading-tight min-h-[3em]"
+                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-light text-bali-darker leading-tight"
                 initial={{ opacity: 0, y: 20 }}
                 animate={isVisible ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
+                <span className="block">No diseño lindo.</span>
                 <span className="block">
-                  {typedText.split('.')[0] && `${typedText.split('.')[0]}.`}
+                  Diseño{' '}
+                  <span className="text-bali-brown">con sentido</span>.
                 </span>
-                <span className="block">
-                  {typedText.includes('Diseño') && (
-                    <>
-                      Diseño{' '}
-                      <span className="text-bali-brown">con sentido</span>.
-                    </>
-                  )}
-                </span>
-                <motion.span 
-                  className="inline-block w-1 h-8 bg-bali-brown ml-1"
-                  animate={{ opacity: [1, 0, 1] }}
-                  transition={{ duration: 1, repeat: Infinity }}
-                />
               </motion.h2>
             </div>
 
             {/* Progressive text reveal */}
-            <motion.div className="space-y-6">
+            <motion.div className="space-y-4 sm:space-y-6">
               {[
                 "Soy Yami, y mi trabajo va más allá de lo visual: escucho, acompaño y traduzco tu esencia en diseño.",
                 "Diseñar no es hacer lindo. Es acompañar, escuchar y traducir lo que otros sienten y no saben decir.",
@@ -240,7 +194,7 @@ const About = () => {
               ].map((text, index) => (
                 <motion.p 
                   key={index}
-                  className={`${index === 0 ? 'text-lg md:text-xl' : 'text-base md:text-lg'} text-bali-dark font-sans leading-relaxed`}
+                  className={`${index === 0 ? 'text-base sm:text-lg md:text-xl' : 'text-sm sm:text-base md:text-lg'} text-bali-dark font-sans leading-relaxed`}
                   initial={{ opacity: 0, y: 20 }}
                   animate={isVisible ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.8, delay: 0.6 + index * 0.2 }}
@@ -267,7 +221,7 @@ const About = () => {
 
             {/* Enhanced characteristics with elegant icons */}
             <motion.div 
-              className="space-y-4"
+              className="space-y-3 sm:space-y-4"
               initial={{ opacity: 0, y: 20 }}
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.8 }}
@@ -329,7 +283,7 @@ const About = () => {
                   transition={{ duration: 0.5, delay: 0.9 + index * 0.1 }}
                   whileHover={{ scale: 1.02, x: 10 }}
                 >
-                  <div className="flex items-start gap-4 p-6 bg-white/30 backdrop-blur-lg rounded-2xl border border-white/20 shadow-lg group-hover:bg-white/40 transition-all duration-300">
+                  <div className="flex items-start gap-3 sm:gap-4 p-4 sm:p-6 bg-white/30 backdrop-blur-lg rounded-xl sm:rounded-2xl border border-white/20 shadow-lg group-hover:bg-white/40 transition-all duration-300">
                     <motion.div
                       whileHover={{ scale: 1.1, rotate: 5 }}
                       transition={{ duration: 0.3 }}
@@ -337,10 +291,10 @@ const About = () => {
                       {item.icon}
                     </motion.div>
                     <div className="flex-1">
-                      <h3 className="text-bali-darker font-serif font-medium text-lg mb-2 group-hover:text-bali-brown transition-colors duration-300">
+                      <h3 className="text-bali-darker font-serif font-medium text-base sm:text-lg mb-1 sm:mb-2 group-hover:text-bali-brown transition-colors duration-300">
                         {item.text}
                       </h3>
-                      <p className="text-bali-dark/80 font-sans text-sm leading-relaxed">
+                      <p className="text-bali-dark/80 font-sans text-xs sm:text-sm leading-relaxed">
                         {item.description}
                       </p>
                     </div>
