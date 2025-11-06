@@ -74,30 +74,30 @@ Mensaje: ${formData.message}
     <section 
       id="contacto" 
       ref={sectionRef}
-      className="py-20 lg:py-32 bg-bali-cream"
+      className="py-16 sm:py-20 lg:py-32 bg-bali-cream overflow-hidden"
     >
-      <div className="container mx-auto px-6 lg:px-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <motion.div 
-          className="text-center max-w-4xl mx-auto mb-16"
+          className="text-center max-w-4xl mx-auto mb-10 sm:mb-12 md:mb-16 px-2"
           initial={{ opacity: 0, y: 30 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-light text-bali-darker mb-6 leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-light text-bali-darker mb-4 sm:mb-6 leading-tight">
             Contame sobre{' '}
             <span className="italic text-bali-brown">tu marca</span>
             <br />
             y vemos juntas el camino
           </h2>
-          <p className="text-lg md:text-xl text-bali-dark font-sans leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-bali-dark font-sans leading-relaxed px-4">
             Cada proyecto comienza con una conversación.{' '}
             <span className="font-medium text-bali-brown">Charlemos sin compromiso</span>.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-16 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16 max-w-6xl mx-auto">
           
           {/* Formulario */}
           <motion.div
@@ -105,15 +105,15 @@ Mensaje: ${formData.message}
             animate={isVisible ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className="bg-white rounded-3xl p-8 shadow-lg">
-              <h3 className="text-2xl font-serif font-medium text-bali-darker mb-6">
+            <div className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-lg">
+              <h3 className="text-xl sm:text-2xl font-serif font-medium text-bali-darker mb-4 sm:mb-6">
                 Enviame un mensaje
               </h3>
               
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                 {/* Nombre */}
                 <div>
-                  <label className="block text-bali-dark font-sans font-medium mb-2">
+                  <label className="block text-bali-dark font-sans font-medium mb-2 text-sm sm:text-base">
                     Tu nombre
                   </label>
                   <input
@@ -121,7 +121,7 @@ Mensaje: ${formData.message}
                     name="name"
                     value={formData.name}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border-2 border-bali-light rounded-2xl focus:border-bali-brown focus:outline-none transition-colors duration-300 font-sans"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border-2 border-bali-light rounded-xl sm:rounded-2xl focus:border-bali-brown focus:outline-none transition-colors duration-300 font-sans text-sm sm:text-base"
                     placeholder="¿Cómo te llamás?"
                     required
                   />
@@ -129,7 +129,7 @@ Mensaje: ${formData.message}
 
                 {/* Email */}
                 <div>
-                  <label className="block text-bali-dark font-sans font-medium mb-2">
+                  <label className="block text-bali-dark font-sans font-medium mb-2 text-sm sm:text-base">
                     Tu email
                   </label>
                   <input
@@ -137,7 +137,7 @@ Mensaje: ${formData.message}
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border-2 border-bali-light rounded-2xl focus:border-bali-brown focus:outline-none transition-colors duration-300 font-sans"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border-2 border-bali-light rounded-xl sm:rounded-2xl focus:border-bali-brown focus:outline-none transition-colors duration-300 font-sans text-sm sm:text-base"
                     placeholder="tu@email.com"
                     required
                   />
@@ -145,7 +145,7 @@ Mensaje: ${formData.message}
 
                 {/* Mensaje */}
                 <div>
-                  <label className="block text-bali-dark font-sans font-medium mb-2">
+                  <label className="block text-bali-dark font-sans font-medium mb-2 text-sm sm:text-base">
                     Contame sobre tu proyecto
                   </label>
                   <textarea
@@ -153,7 +153,7 @@ Mensaje: ${formData.message}
                     value={formData.message}
                     onChange={handleInputChange}
                     rows="5"
-                    className="w-full px-4 py-3 border-2 border-bali-light rounded-2xl focus:border-bali-brown focus:outline-none transition-colors duration-300 font-sans resize-none"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border-2 border-bali-light rounded-xl sm:rounded-2xl focus:border-bali-brown focus:outline-none transition-colors duration-300 font-sans resize-none text-sm sm:text-base"
                     placeholder="¿Qué tenés en mente? ¿Qué necesitás para tu marca? ¡Contame todo!"
                     required
                   />
@@ -163,7 +163,7 @@ Mensaje: ${formData.message}
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-bali-brown text-white px-6 py-4 rounded-2xl font-sans font-medium text-lg hover:bg-bali-dark transition-all duration-300 transform hover:scale-105 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3"
+                  className="w-full bg-bali-brown text-white px-4 sm:px-6 py-3 sm:py-4 rounded-xl sm:rounded-2xl font-sans font-medium text-base sm:text-lg hover:bg-bali-dark transition-all duration-300 transform hover:scale-105 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 sm:gap-3"
                 >
                   {isSubmitting ? (
                     <>
@@ -179,8 +179,8 @@ Mensaje: ${formData.message}
                 </button>
               </form>
 
-              <div className="mt-6 pt-6 border-t border-bali-light">
-                <p className="text-sm text-bali-dark/70 font-sans text-center">
+              <div className="mt-4 sm:mt-6 pt-4 sm:pt-6 border-t border-bali-light">
+                <p className="text-xs sm:text-sm text-bali-dark/70 font-sans text-center">
                   Tu mensaje será redirigido a WhatsApp para una respuesta más rápida 💬
                 </p>
               </div>
@@ -189,23 +189,23 @@ Mensaje: ${formData.message}
 
           {/* Información de Contacto */}
           <motion.div
-            className="space-y-8"
+            className="space-y-6 sm:space-y-8"
             initial={{ opacity: 0, x: 30 }}
             animate={isVisible ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             {/* WhatsApp Directo */}
-            <div className="bg-white rounded-3xl p-8 shadow-lg">
-              <h3 className="text-2xl font-serif font-medium text-bali-darker mb-4">
+            <div className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-lg">
+              <h3 className="text-xl sm:text-2xl font-serif font-medium text-bali-darker mb-3 sm:mb-4">
                 ¿Preferís hablar directo?
               </h3>
-              <p className="text-bali-dark font-sans mb-6 leading-relaxed">
+              <p className="text-sm sm:text-base text-bali-dark font-sans mb-4 sm:mb-6 leading-relaxed">
                 Si querés una respuesta inmediata, escribime por WhatsApp. 
                 Siempre respondo rápido y con mucho cariño.
               </p>
               <button
                 onClick={handleDirectWhatsApp}
-                className="w-full bg-green-500 text-white px-6 py-4 rounded-2xl font-sans font-medium text-lg hover:bg-green-600 transition-all duration-300 transform hover:scale-105 hover:shadow-lg flex items-center justify-center gap-3"
+                className="w-full bg-green-500 text-white px-4 sm:px-6 py-3 sm:py-4 rounded-xl sm:rounded-2xl font-sans font-medium text-base sm:text-lg hover:bg-green-600 transition-all duration-300 transform hover:scale-105 hover:shadow-lg flex items-center justify-center gap-2 sm:gap-3"
               >
                 <FaWhatsapp className="text-xl" />
                 Escribime por WhatsApp
@@ -213,11 +213,11 @@ Mensaje: ${formData.message}
             </div>
 
             {/* Redes Sociales */}
-            <div className="bg-white rounded-3xl p-8 shadow-lg">
-              <h3 className="text-2xl font-serif font-medium text-bali-darker mb-4">
+            <div className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-lg">
+              <h3 className="text-xl sm:text-2xl font-serif font-medium text-bali-darker mb-3 sm:mb-4">
                 Seguime en redes
               </h3>
-              <p className="text-bali-dark font-sans mb-6 leading-relaxed">
+              <p className="text-sm sm:text-base text-bali-dark font-sans mb-4 sm:mb-6 leading-relaxed">
                 En Instagram comparto mi proceso creativo, tips de diseño y 
                 proyectos en tiempo real.
               </p>
@@ -227,49 +227,49 @@ Mensaje: ${formData.message}
                   href="https://www.instagram.com/bali.desing/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-4 p-4 bg-bali-light rounded-2xl hover:bg-bali-mauve transition-colors duration-300 group"
+                  className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 bg-bali-light rounded-xl sm:rounded-2xl hover:bg-bali-mauve transition-colors duration-300 group"
                 >
-                  <div className="w-12 h-12 bg-gradient-to-br from-pink-500 to-purple-600 rounded-2xl flex items-center justify-center">
-                    <FaInstagram className="text-white text-xl" />
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-pink-500 to-purple-600 rounded-xl sm:rounded-2xl flex items-center justify-center shrink-0">
+                    <FaInstagram className="text-white text-lg sm:text-xl" />
                   </div>
-                  <div>
-                    <p className="font-sans font-medium text-bali-darker">@bali.desing</p>
-                    <p className="text-sm text-bali-dark/70 font-sans">Sígueme en Instagram</p>
+                  <div className="min-w-0">
+                    <p className="font-sans font-medium text-bali-darker text-sm sm:text-base">@bali.desing</p>
+                    <p className="text-xs sm:text-sm text-bali-dark/70 font-sans">Sígueme en Instagram</p>
                   </div>
                 </a>
 
-                <div className="flex items-center gap-4 p-4 bg-bali-light rounded-2xl">
-                  <div className="w-12 h-12 bg-bali-brown rounded-2xl flex items-center justify-center">
-                    <FaEnvelope className="text-white text-xl" />
+                <div className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 bg-bali-light rounded-xl sm:rounded-2xl">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-bali-brown rounded-xl sm:rounded-2xl flex items-center justify-center shrink-0">
+                    <FaEnvelope className="text-white text-lg sm:text-xl" />
                   </div>
-                  <div>
-                    <p className="font-sans font-medium text-bali-darker">yamialmendra1501@gmail.com</p>
-                    <p className="text-sm text-bali-dark/70 font-sans">Email directo</p>
+                  <div className="min-w-0">
+                    <p className="font-sans font-medium text-bali-darker text-xs sm:text-sm break-all">yamialmendra1501@gmail.com</p>
+                    <p className="text-xs sm:text-sm text-bali-dark/70 font-sans">Email directo</p>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Horarios */}
-            <div className="bg-gradient-to-br from-bali-brown to-bali-rose rounded-3xl p-8 text-white">
-              <h3 className="text-2xl font-serif font-medium mb-4">
+            <div className="bg-gradient-to-br from-bali-brown to-bali-rose rounded-2xl sm:rounded-3xl p-6 sm:p-8 text-white">
+              <h3 className="text-xl sm:text-2xl font-serif font-medium mb-3 sm:mb-4">
                 Tiempos de respuesta
               </h3>
-              <div className="space-y-3">
+              <div className="space-y-2 sm:space-y-3">
                 <div className="flex justify-between items-center">
-                  <span className="font-sans">WhatsApp</span>
-                  <span className="font-sans font-light">Inmediato</span>
+                  <span className="font-sans text-sm sm:text-base">WhatsApp</span>
+                  <span className="font-sans font-light text-sm sm:text-base">Inmediato</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="font-sans">Email</span>
-                  <span className="font-sans font-light">24-48hs</span>
+                  <span className="font-sans text-sm sm:text-base">Email</span>
+                  <span className="font-sans font-light text-sm sm:text-base">24-48hs</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="font-sans">Instagram</span>
-                  <span className="font-sans font-light">Mismo día</span>
+                  <span className="font-sans text-sm sm:text-base">Instagram</span>
+                  <span className="font-sans font-light text-sm sm:text-base">Mismo día</span>
                 </div>
               </div>
-              <p className="text-white/80 font-sans text-sm mt-4 leading-relaxed">
+              <p className="text-white/80 font-sans text-xs sm:text-sm mt-3 sm:mt-4 leading-relaxed">
                 Trabajo de lunes a viernes, pero si tu proyecto es urgente, 
                 no dudes en escribirme igual 💕
               </p>
