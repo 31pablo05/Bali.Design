@@ -229,9 +229,9 @@ const Footer = () => {
           >
             
             {/* Copyright */}
-            <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-white/60 font-sans text-sm">
+            <div className="flex flex-col sm:flex-row items-center gap-1.5 sm:gap-3 text-white/60 font-sans text-xs sm:text-sm">
               <motion.div 
-                className="flex items-center gap-2"
+                className="flex items-center gap-1.5"
                 whileHover={{ scale: 1.02 }}
               >
                 <span className="bg-gradient-to-r from-white/60 to-bali-brown/80 bg-clip-text text-transparent">
@@ -239,7 +239,7 @@ const Footer = () => {
                 </span>
               </motion.div>
               <motion.div 
-                className="flex items-center gap-2"
+                className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2"
                 whileHover={{ scale: 1.02 }}
               >
                 <span>Desarrollado con</span>
@@ -261,7 +261,7 @@ const Footer = () => {
                   href="https://devcraftpablo.online/" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-white hover:text-bali-brown transition-all duration-500 font-bold text-base bg-bali-brown/20 px-3 py-1 rounded-full hover:bg-bali-brown/30 backdrop-blur-sm border border-bali-brown/30 hover:border-bali-brown hover:shadow-lg hover:shadow-bali-brown/25"
+                  className="text-white hover:text-bali-brown transition-all duration-500 font-bold text-xs sm:text-sm bg-bali-brown/20 px-2 sm:px-3 py-0.5 sm:py-1 rounded-full hover:bg-bali-brown/30 backdrop-blur-sm border border-bali-brown/30 hover:border-bali-brown hover:shadow-lg hover:shadow-bali-brown/25"
                   whileHover={{ 
                     scale: 1.1,
                     boxShadow: "0 0 20px rgba(139, 69, 19, 0.4)"
@@ -275,21 +275,21 @@ const Footer = () => {
 
             {/* Quick Contact */}
             <motion.div 
-              className="flex items-center gap-6"
+              className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6"
               initial={{ opacity: 0, x: 20 }}
               animate={isVisible ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.8 }}
             >
               <motion.a
                 href="mailto:yamialmendra1501@gmail.com"
-                className="text-white/60 hover:text-white font-sans text-sm transition-all duration-300 hover:underline decoration-bali-brown"
+                className="text-white/60 hover:text-white font-sans text-xs sm:text-sm transition-all duration-300 hover:underline decoration-bali-brown break-all text-center"
                 whileHover={{ scale: 1.05, color: "#8b4513" }}
               >
                 yamialmendra1501@gmail.com
               </motion.a>
               <motion.button
                 onClick={handleWhatsAppClick}
-                className="text-white/60 hover:text-green-400 font-sans text-sm transition-all duration-300 hover:underline decoration-green-400"
+                className="text-white/60 hover:text-green-400 font-sans text-xs sm:text-sm transition-all duration-300 hover:underline decoration-green-400"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -300,13 +300,13 @@ const Footer = () => {
 
           {/* Final Quote */}
           <motion.div 
-            className="text-center mt-8 pt-6 border-t border-white/10"
+            className="text-center mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-white/10 px-4"
             initial={{ opacity: 0, y: 20 }}
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 1 }}
           >
             <motion.p 
-              className="text-white font-serif italic text-xl md:text-2xl lg:text-3xl font-light bg-gradient-to-r from-white via-bali-brown to-white bg-clip-text text-transparent leading-relaxed tracking-wide"
+              className="text-white font-serif italic text-lg sm:text-xl md:text-2xl lg:text-3xl font-light bg-gradient-to-r from-white via-bali-brown to-white bg-clip-text text-transparent leading-relaxed tracking-wide"
               animate={{ 
                 y: [0, -5, 0],
                 scale: [1, 1.02, 1]
