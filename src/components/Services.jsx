@@ -71,7 +71,7 @@ const Services = () => {
     <section 
       id="servicios" 
       ref={sectionRef}
-      className="py-12 sm:py-16 md:py-20 lg:py-32 bg-bali-cream"
+      className="py-12 sm:py-16 md:py-20 lg:py-32 bg-bali-cream overflow-hidden max-w-full"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         

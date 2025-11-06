@@ -53,7 +53,7 @@ const About = () => {
     <section 
       id="about" 
       ref={sectionRef}
-      className="py-16 sm:py-20 lg:py-32 bg-gradient-to-br from-bali-beige via-bali-beige to-bali-cream relative overflow-hidden"
+      className="py-16 sm:py-20 lg:py-32 bg-gradient-to-br from-bali-beige via-bali-beige to-bali-cream relative overflow-hidden max-w-full"
     >
       {/* Animated background elements - Static on mobile */}
       <div className="absolute inset-0">
@@ -131,9 +131,9 @@ const About = () => {
                 </motion.div>
               </div>
 
-              {/* Enhanced floating decorative elements - Responsive sizes */}
+              {/* Enhanced floating decorative elements - Responsive sizes - Hidden on small screens to prevent overflow */}
               <motion.div 
-                className="absolute -top-3 -right-3 sm:-top-6 sm:-right-6 w-8 h-8 sm:w-12 sm:h-12 bg-gradient-to-br from-bali-rose to-bali-mauve rounded-full shadow-lg"
+                className="hidden sm:block absolute -top-3 -right-3 sm:-top-6 sm:-right-6 w-8 h-8 sm:w-12 sm:h-12 bg-gradient-to-br from-bali-rose to-bali-mauve rounded-full shadow-lg"
                 animate={{ 
                   y: [0, -10, 0],
                   rotate: [0, 180, 360],
@@ -143,7 +143,7 @@ const About = () => {
                 style={{ x: mousePosition.x * 0.5, y: mousePosition.y * 0.5 }}
               />
               <motion.div 
-                className="absolute -bottom-4 -left-4 sm:-bottom-8 sm:-left-8 w-10 h-10 sm:w-16 sm:h-16 bg-gradient-to-br from-bali-brown/30 to-bali-brown/10 rounded-full backdrop-blur-sm"
+                className="hidden sm:block absolute -bottom-4 -left-4 sm:-bottom-8 sm:-left-8 w-10 h-10 sm:w-16 sm:h-16 bg-gradient-to-br from-bali-brown/30 to-bali-brown/10 rounded-full backdrop-blur-sm"
                 animate={{ 
                   scale: [1, 1.3, 1],
                   opacity: [0.6, 1, 0.6]
@@ -152,7 +152,7 @@ const About = () => {
                 style={{ x: mousePosition.x * -0.3, y: mousePosition.y * -0.3 }}
               />
               <motion.div 
-                className="absolute top-1/3 -right-6 sm:-right-12 w-4 h-4 sm:w-6 sm:h-6 bg-bali-mauve rounded-full"
+                className="hidden md:block absolute top-1/3 -right-6 sm:-right-12 w-4 h-4 sm:w-6 sm:h-6 bg-bali-mauve rounded-full"
                 animate={{ 
                   x: [0, 10, 0],
                   y: [0, -15, 0]

@@ -33,8 +33,8 @@ const Hero = () => {
   };
 
   return (
-    <section id="hero" className="min-h-screen bg-bali-cream flex items-center pt-20 sm:pt-24 lg:pt-28 px-4 sm:px-6 lg:px-8">
-      <div className="container mx-auto">
+    <section id="hero" className="min-h-screen bg-bali-cream flex items-center pt-20 sm:pt-24 lg:pt-28 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <div className="container mx-auto max-w-full">
         <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
           
           {/* Contenido Textual */}
@@ -109,7 +109,7 @@ const Hero = () => {
 
           {/* Carrusel de Imágenes */}
           <motion.div 
-            className="relative order-1 lg:order-2 w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-none mx-auto"
+            className="relative order-1 lg:order-2 w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-none mx-auto px-4 sm:px-8 md:px-12"
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
@@ -155,15 +155,15 @@ const Hero = () => {
                 </div>
               </div>
               
-              {/* Decorative elements - Responsive */}
-              <div className="absolute -top-2 sm:-top-4 -right-2 sm:-right-4 w-4 h-4 sm:w-6 sm:h-6 md:w-8 md:h-8 bg-bali-brown rounded-full opacity-80"></div>
-              <div className="absolute -bottom-3 sm:-bottom-6 -left-3 sm:-left-6 w-3 h-3 sm:w-4 sm:h-4 md:w-6 md:h-6 bg-bali-rose rounded-full opacity-60"></div>
-              <div className="absolute top-1/2 -left-4 sm:-left-6 md:-left-8 w-2 h-2 sm:w-3 sm:h-3 md:w-4 md:h-4 bg-bali-mauve rounded-full opacity-40"></div>
+              {/* Decorative elements - Responsive - Hidden on mobile to prevent overflow */}
+              <div className="hidden sm:block absolute -top-2 sm:-top-4 -right-2 sm:-right-4 w-4 h-4 sm:w-6 sm:h-6 md:w-8 md:h-8 bg-bali-brown rounded-full opacity-80"></div>
+              <div className="hidden sm:block absolute -bottom-3 sm:-bottom-6 -left-3 sm:-left-6 w-3 h-3 sm:w-4 sm:h-4 md:w-6 md:h-6 bg-bali-rose rounded-full opacity-60"></div>
+              <div className="hidden md:block absolute top-1/2 -left-4 sm:-left-6 md:-left-8 w-2 h-2 sm:w-3 sm:h-3 md:w-4 md:h-4 bg-bali-mauve rounded-full opacity-40"></div>
             </div>
 
-            {/* Floating elements - Responsive */}
+            {/* Floating elements - Responsive - Hidden on mobile to prevent overflow */}
             <motion.div 
-              className="absolute top-1 sm:top-2 -left-4 sm:-left-6 md:-left-8 bg-white p-1.5 sm:p-2 rounded-full shadow-lg border border-bali-light/30"
+              className="hidden md:block absolute top-1 sm:top-2 -left-4 sm:-left-6 md:-left-8 bg-white p-1.5 sm:p-2 rounded-full shadow-lg border border-bali-light/30"
               animate={{ y: [0, -8, 0] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
             >
