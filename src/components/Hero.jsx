@@ -168,16 +168,13 @@ const Hero = () => {
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
             >
               {/* Logo de Bali.Design */}
-              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-bali-brown rounded-full flex items-center justify-center">
-                <span className="text-white font-serif text-sm sm:text-base font-bold">B</span>
+              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-bali-brown rounded-full flex items-center justify-center overflow-hidden">
+                <img 
+                  src="/images/logo/LogoBALI (1).png" 
+                  alt="Bali.Design Logo" 
+                  className="w-full h-full object-contain p-1"
+                />
               </div>
-              {/* Cuando tengas el logo, reemplaza el div de arriba con:
-              <img 
-                src="/path/to/bali-logo.png" 
-                alt="Bali.Design Logo" 
-                className="w-8 h-8 sm:w-10 sm:h-10 object-contain rounded-full"
-              />
-              */}
             </motion.div>
           </motion.div>
         </div>

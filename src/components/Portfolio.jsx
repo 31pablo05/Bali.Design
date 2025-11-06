@@ -137,10 +137,19 @@ const Portfolio = () => {
     <section 
       id="portfolio" 
       ref={sectionRef}
-      className="py-16 sm:py-20 lg:py-32 bg-bali-beige"
+      className="py-16 sm:py-20 lg:py-32 bg-bali-beige relative"
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
+        {/* Logo BALI de fondo - Posicionado arriba del título */}
+        <div className="flex items-center justify-center pointer-events-none overflow-hidden -mt-12 sm:-mt-16 md:-mt-20 lg:-mt-24 pb-4 sm:pb-6 md:pb-8">
+          <img 
+            src="/images/logo/banner.svg" 
+            alt="" 
+            className="w-full max-w-3xl sm:max-w-4xl lg:max-w-5xl h-auto object-contain opacity-100"
+          />
+        </div>
+
         {/* Header */}
         <motion.div 
           className="text-center max-w-4xl mx-auto mb-16"

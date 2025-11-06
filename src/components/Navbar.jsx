@@ -90,11 +90,15 @@ const Navbar = () => {
           >
             {/* Logo Circle with gradient */}
             <motion.div 
-              className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-bali-brown to-bali-brown/80 rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300"
+              className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 bg-gradient-to-br from-bali-brown to-bali-brown/80 rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 overflow-hidden"
               whileHover={{ rotate: 360 }}
               transition={{ duration: 0.8 }}
             >
-              <span className="text-white font-serif text-sm sm:text-lg lg:text-xl font-bold">B</span>
+              <img 
+                src="/images/logo/LogoBALI (1).png" 
+                alt="Bali.Design Logo" 
+                className="w-full h-full object-contain p-1"
+              />
               {/* Decorative ring */}
               <div className="absolute inset-0 rounded-full border-2 border-bali-rose/30 scale-110 opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
             </motion.div>

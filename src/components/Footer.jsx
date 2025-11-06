@@ -66,9 +66,9 @@ const Footer = () => {
                   Bali.Design
                 </h3>
                 
-                {/* Logo Placeholder - positioned to the right */}
+                {/* Logo - positioned to the right */}
                 <motion.div 
-                  className="w-12 h-12 bg-gradient-to-br from-bali-brown to-bali-brown/60 rounded-full flex items-center justify-center border-2 border-white/20 backdrop-blur-sm shadow-lg flex-shrink-0"
+                  className="w-12 h-12 bg-gradient-to-br from-bali-brown to-bali-brown/60 rounded-full flex items-center justify-center border-2 border-white/20 backdrop-blur-sm shadow-lg flex-shrink-0 overflow-hidden"
                   whileHover={{ 
                     scale: 1.15,
                     rotate: 10,
@@ -76,8 +76,11 @@ const Footer = () => {
                   }}
                   transition={{ duration: 0.3 }}
                 >
-                  {/* Temporary logo placeholder - will be replaced with actual logo image */}
-                  <span className="text-white text-lg font-serif font-bold">B</span>
+                  <img 
+                    src="/images/logo/LogoBALI (1).png" 
+                    alt="Bali.Design Logo" 
+                    className="w-full h-full object-contain p-1.5"
+                  />
                 </motion.div>
               </div>
               <p className="text-white/80 font-sans">

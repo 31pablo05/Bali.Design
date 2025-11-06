@@ -103,30 +103,30 @@ const About = () => {
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.4 }}
                 >
-                  <div className="w-full h-full bg-gradient-to-br from-bali-light to-bali-brown flex items-center justify-center relative">
+                  <div className="w-full h-full relative">
+                    {/* Imagen de Yami */}
+                    <img 
+                      src="/images/yami/yami1.jpeg"
+                      alt="Yami - Diseñadora Gráfica de Bali.Design"
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                        console.error('Error cargando imagen de Yami');
+                      }}
+                    />
+                    
                     {/* Gradient overlay animation */}
                     <motion.div 
-                      className="absolute inset-0 bg-gradient-to-tr from-bali-rose/30 via-transparent to-bali-mauve/30"
+                      className="absolute inset-0 bg-gradient-to-tr from-bali-rose/20 via-transparent to-bali-mauve/20"
                       animate={{ 
                         background: [
-                          "linear-gradient(45deg, rgba(218, 165, 144, 0.3), transparent, rgba(203, 174, 171, 0.3))",
-                          "linear-gradient(135deg, rgba(203, 174, 171, 0.3), transparent, rgba(218, 165, 144, 0.3))",
-                          "linear-gradient(225deg, rgba(218, 165, 144, 0.3), transparent, rgba(203, 174, 171, 0.3))"
+                          "linear-gradient(45deg, rgba(218, 165, 144, 0.2), transparent, rgba(203, 174, 171, 0.2))",
+                          "linear-gradient(135deg, rgba(203, 174, 171, 0.2), transparent, rgba(218, 165, 144, 0.2))",
+                          "linear-gradient(225deg, rgba(218, 165, 144, 0.2), transparent, rgba(203, 174, 171, 0.2))"
                         ]
                       }}
                       transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
                     />
-                    <div className="text-center space-y-2 sm:space-y-3 relative z-10">
-                      <motion.div 
-                        className="w-20 h-20 sm:w-28 sm:h-28 lg:w-32 lg:h-32 bg-white/90 backdrop-blur-sm rounded-full mx-auto flex items-center justify-center"
-                        whileHover={{ rotate: 360 }}
-                        transition={{ duration: 0.8 }}
-                      >
-                        <span className="text-bali-brown text-3xl sm:text-4xl lg:text-5xl font-serif">Y</span>
-                      </motion.div>
-                      <p className="text-white font-sans text-base sm:text-lg font-medium">Yami</p>
-                      <p className="text-white/80 font-sans text-xs sm:text-sm">Diseñadora Visual</p>
-                    </div>
                   </div>
                 </motion.div>
               </div>
