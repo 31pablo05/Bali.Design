@@ -251,12 +251,6 @@ const Navbar = () => {
                     whileHover={{ x: 10 }}
                   >
                     <span className="text-sm sm:text-base">{item.name}</span>
-                    {activeSection === item.id && (
-                      <motion.div 
-                        className="absolute left-4 sm:left-6 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-bali-brown rounded-full"
-                        layoutId="mobileActiveIndicator"
-                      />
-                    )}
                   </motion.button>
                 ))}
                 
