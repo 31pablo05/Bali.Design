@@ -158,12 +158,12 @@ const Services = () => {
           {/* Header */}
           <div className="text-center mb-8 sm:mb-10 md:mb-12">
             <h3 className="text-2xl sm:text-3xl md:text-4xl font-serif font-light text-bali-darker mb-3 sm:mb-4">
-              ¿Te gustaría trabajar conmigo?
+              Mi proceso de trabajo
             </h3>
             <p className="text-base sm:text-lg text-bali-dark font-sans leading-relaxed max-w-3xl mx-auto px-4">
-              Te cuento el paso a paso de cómo es el proceso de diseño en Bali
+              Así es cómo trabajamos juntas, paso a paso,
               <br className="hidden md:block" />
-              para que tengas todo claro desde el principio
+              para que tu marca sea exactamente lo que necesitas
             </p>
           </div>
 
