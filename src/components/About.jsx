@@ -106,7 +106,7 @@ const About = () => {
                   <div className="w-full h-full relative">
                     {/* Imagen de Yami */}
                     <img 
-                      src="/images/yami/yami1.jpeg"
+                      src="/images/yami/yami4.png"
                       alt="Yami - Diseñadora Gráfica de Bali.Design"
                       className="w-full h-full object-cover"
                       onError={(e) => {
