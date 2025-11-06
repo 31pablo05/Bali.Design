@@ -329,6 +329,34 @@ const About = () => {
                 style={{ transform: "translateZ(-10px)" }}
               />
             </motion.blockquote>
+
+            {/* Portfolio PDF Download CTA */}
+            <motion.div
+              className="pt-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={isVisible ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 1.4 }}
+            >
+              <a
+                href="/Pdf/Portfolio.pdf"
+                download
+                className="group relative inline-flex items-center gap-3 px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-bali-rose to-bali-mauve text-white rounded-full font-sans font-medium text-sm sm:text-base hover:from-bali-mauve hover:to-bali-rose transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+              >
+                <svg 
+                  className="w-5 h-5 sm:w-6 sm:h-6 transition-transform duration-300 group-hover:scale-110" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                <span>¿Querés ver más? Descargá mi Portfolio</span>
+                <div className="absolute inset-0 rounded-full bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </a>
+              <p className="text-bali-dark/60 font-sans text-xs sm:text-sm mt-3 text-left">
+                Ver trabajos completos, servicios y casos de éxito en PDF
+              </p>
+            </motion.div>
           </motion.div>
         </div>
       </div>

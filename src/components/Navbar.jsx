@@ -176,6 +176,31 @@ const Navbar = () => {
 
           {/* CTA & Social - Responsive */}
           <div className="flex items-center space-x-2 sm:space-x-3 lg:space-x-4">
+            {/* Portfolio PDF Download - Hidden on small mobile */}
+            <motion.a
+              href="/Pdf/Portfolio.pdf"
+              download
+              className="hidden md:flex items-center gap-2 px-3 py-2 lg:px-4 lg:py-2.5 bg-gradient-to-br from-bali-rose/20 to-bali-mauve/20 rounded-full hover:from-bali-rose hover:to-bali-mauve hover:text-white transition-all duration-300 group shadow-md hover:shadow-lg"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.4 }}
+              title="Descargar Portfolio PDF"
+            >
+              <svg 
+                className="w-4 h-4 lg:w-5 lg:h-5 text-bali-brown group-hover:text-white transition-colors duration-300" 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              <span className="hidden lg:inline text-xs lg:text-sm font-sans font-medium text-bali-brown group-hover:text-white transition-colors duration-300">
+                Portfolio PDF
+              </span>
+            </motion.a>
+
             {/* Instagram - Hidden on small mobile */}
             <motion.a
               href="https://www.instagram.com/bali.desing/"
