@@ -34,11 +34,22 @@ const Navbar = () => {
   }, []);
 
   const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsMobileMenuOpen(false);
-    }
+    setIsMobileMenuOpen(false);
+    
+    // Pequeño delay para cerrar el menú primero
+    setTimeout(() => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        const navbarHeight = window.innerWidth < 640 ? 56 : window.innerWidth < 768 ? 64 : 80;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }, 100);
   };
 
   const handleWhatsAppClick = () => {
@@ -215,14 +226,14 @@ const Navbar = () => {
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
-              className="xl:hidden absolute top-full left-0 right-0 bg-white/98 backdrop-blur-xl shadow-2xl border-t border-bali-light/30"
+              className="xl:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-2xl shadow-2xl border-t border-bali-brown/20"
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
             >
-              {/* Background gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-b from-white/50 to-bali-cream/30"></div>
+              {/* Background gradient overlay - More opaque */}
+              <div className="absolute inset-0 bg-gradient-to-b from-white/80 to-bali-cream/70"></div>
               
               <div className="relative py-4 sm:py-6 space-y-1">
                 {navItems.map((item, index) => (
@@ -231,8 +242,8 @@ const Navbar = () => {
                     onClick={() => scrollToSection(item.id)}
                     className={`block w-full text-left px-4 sm:px-6 py-3 sm:py-4 font-sans font-medium transition-all duration-300 relative group ${
                       activeSection === item.id
-                        ? 'text-bali-brown bg-gradient-to-r from-bali-brown/10 to-bali-rose/5 border-r-4 border-bali-brown'
-                        : 'text-bali-dark hover:text-bali-brown hover:bg-gradient-to-r hover:from-bali-light/50 hover:to-bali-light/30'
+                        ? 'text-bali-brown bg-gradient-to-r from-bali-brown/20 to-bali-rose/10 border-r-4 border-bali-brown'
+                        : 'text-bali-darker hover:text-bali-brown hover:bg-gradient-to-r hover:from-bali-light/70 hover:to-bali-light/50'
                     }`}
                     initial={{ opacity: 0, x: -50 }}
                     animate={{ opacity: 1, x: 0 }}

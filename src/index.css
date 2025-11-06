@@ -135,8 +135,3 @@
 .via-bali-mauve { --tw-gradient-to: var(--bali-mauve); }
 .via-bali-brown { --tw-gradient-to: var(--bali-brown); }
 
-/* Smooth scrolling global */
-html {
-  scroll-behavior: smooth;
-}
-
